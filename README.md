@@ -1,5 +1,5 @@
 # gollum
-### Sample project with Web API 2
+Sample project with Web API 2
  
 ## :octocat: References
 
@@ -16,8 +16,8 @@ Used [Ninject]() | Used [Moq](https://github.com/Moq/moq4/wiki/Quickstart) | :ho
 - [x] **Unit Testing** with <del>JustMock</del> :arrow_right_hook: Moq
 - [ ] **Routing** /// :clubs: Conventional vs. :spades: Attribute Based (Semi-complete)
 - [ ] **Claims Based Authentication** - Not implemented
-- [ ] User Interface with Ng2 & TypeScript
-- [ ] Logger - Not yet decided
+- [ ] **User Interface** with Ng2 & TypeScript
+- [ ] **Logger** - Not yet decided
 
 
 #### Complete that one : 
