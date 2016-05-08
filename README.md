@@ -1,20 +1,64 @@
 # gollum
-###### Sample project with Web API 2
+### Sample project with Web API 2
  
-## references
+## :octocat: References
 
-1. <del>Integration Testing</del>http://tostring.it/2012/07/23/an-easy-way-to-write-an-integration-test-with-web-api/
-2. <del>In Memory Integration Testing</del> http://www.strathweb.com/2012/06/asp-net-web-api-integration-testing-with-in-memory-hosting/
-3. <del>IHttpActionResult Web API 2</del> http://stackoverflow.com/questions/31485618/xunit-test-ihttpactionresult-web-api-2-function-for-custom-message
-   * Item 3a
-   * Item 3b
+Dependency Injection | Unit Testing | Security | User Interface | Logging 
+------------ | ------------- | -------------  | ------------- | -------------
+Used [Ninject]() | Used [Moq](https://github.com/Moq/moq4/wiki/Quickstart) | :hourglass_flowing_sand: | :hourglass: | x
 
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
 
-- [x] @mentions, #refs, [links](), **formatting**, and <del>tags</del> supported
-- [x] list syntax required (any unordered or ordered list supported)
-- [x] this is a complete item
-- [ ] this is an incomplete item
+
+
+## :mailbox_with_mail: To Do
+
+- [x] **Injection** with <del>Unity</del> :arrow_right_hook: Ninject
+- [x] **Unit Testing** with <del>JustMock</del> :arrow_right_hook: Moq
+- [ ] **Routing** /// :clubs: Conventional vs. :spades: Attribute Based (Semi-complete)
+- [ ] **Claims Based Authentication** - Not implemented
+- [ ] User Interface with Ng2 & TypeScript
+- [ ] Logger - Not yet decided
+
+
+#### Complete that one : 
+
+```cs
+	
+    public static class HttpRequestMessageFactory
+    {
+        public static HttpRequestMessage CreateRequestMessage(HttpMethod method = null, string uriString = null)
+        {
+            method = method ?? HttpMethod.Get;
+            var uri = string.IsNullOrWhiteSpace(uriString)
+                ? new Uri("http://localhost:12345/api/whatever")
+                : new Uri(uriString);
+            var requestMessage = new HttpRequestMessage(method, uri);
+            requestMessage.SetConfiguration(new HttpConfiguration());
+            return requestMessage;
+        }
+    }
+    
+```
+
+
+
+## :anchor: To Read 
+
+* Integration Tests
+   * :closed_lock_with_key: [Integration Testing](http://tostring.it/2012/07/23/an-easy-way-to-write-an-integration-test-with-web-api/)
+   * :closed_lock_with_key: [In Memory Integration Testing](http://www.strathweb.com/2012/06/asp-net-web-api-integration-testing-with-in-memory-hosting/)
+
+
+* Tests
+	* About :lock: [IHttpActionResult / Web API 2](http://stackoverflow.com/questions/31485618/xunit-test-ihttpactionresult-web-api-2-function-for-custom-message)
+	* About :unlock: [ Unit Testing](http://www.asp.net/web-api/overview/testing-and-debugging/unit-testing-controllers-in-web-api)
+
+
+* NuDoq
+   * [Ninject Ref](http://www.nudoq.org/#!/Projects/Ninject)
+   * [Moq Ref](http://www.nudoq.org/#!/Projects/Moq)
+
+
+
+
+
