@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Task App</title>
+</head>
+<body>
+    <hr />
+    <div>
+        <h1>[GET] - Get All</h1>
+        <h2>All Tasks</h2>
+        <ul id="tasks" />
+    </div>
+    <hr />
+
+    <div>
+        <h1>[GET] - Get By Id</h1>
+        <h2>Task by ID</h2>
+        <input type="text" id="taskId" />
+        <input type="button" value="Search" onclick="find();" />
+        <p id="taskSearch" />
+    </div>
+    <hr />
+
+    <div>
+        <h1>[POST] - Create</h1>
+        <h2>Add with name</h2>
+        <input type="text" id="taskName" placeholder="Name" />
+        <input type="text" id="taskDescription" placeholder="Description" />
+        <input type="button" value="Submit" onclick="submit();" />
+        <p id="taskAdded" />
+    </div>
+    <hr />
+
+    <div>
+        <h1>[PUT] - Update</h1>
+        <h2>Update by ID</h2>
+        <input type="text" id="upTaskId" placeholder="Id" />
+        <input type="text" id="upTaskKey" placeholder="Key" />
+        <input type="text" id="upTaskName" placeholder="Name" />
+        <input type="text" id="upTaskDescription" placeholder="Description" />
+        <input type="button" value="Update" onclick="update();" />
+        <p id="taskUpdated" />
+    </div>
+    <hr />
+
+    <div>
+        <h1>[DELETE] - Delete</h1>
+        <h2>Delete by ID</h2>
+        <input type="text" id="delTaskId" placeholder="Id" />
+        <input type="button" value="Delete" onclick="del();" />
+        <p id="taskDeleted" />
+    </div>
+
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
+    <script>
+        var uri = 'api/task/';
+
+        $(document).ready(function () {
+            // Send an AJAX request
+            getAll();
+        });
+
+        function formatItem(item) {
+            return item.Name + ' - ' + item.Description + ' - Key: ' + item.Key + ' - Id: ' + item.Id;
+        }
+
+        function find() {
+            var id = $('#taskId').val();
+            $.getJSON(uri + '/' + id)
+                .done(function (data) {
+                    $('#taskSearch').text(formatItem(data));
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#taskSearch').text('Error: ' + err);
+                });
+        }
+
+        function submit() {
+            var name = $('#taskName').val();
+            var description = $('#taskDescription').val();
+            $.post(uri, { "Name": name, "Description": description })
+                .done(function (data) {
+                    $('#taskAdded').text(formatItem(data));
+                    getAll();
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#taskAdded').text('Error: ' + err);
+                });
+        }
+
+        function getAll() {
+
+            $('#tasks').empty();
+            $.getJSON(uri)
+                .done(function (data) {
+                    // On success, 'data' contains a list of tasks.
+                    $.each(data, function (key, item) {
+                        // Add a list item for the task.
+                        $('<li>', { text: formatItem(item) }).appendTo($('#tasks'));
+                    });
+                });
+        }
+
+        function update() {
+            var id = $('#upTaskId').val();
+            var key = $('#upTaskKey').val();
+            var name = $('#upTaskName').val();
+            var description = $('#upTaskDescription').val();
+
+            $.ajax({
+                url: uri + '/' + id,
+                type: 'PUT',
+                data: { "Name": name, "Description": description, "Key": key, "Id": id, _method: 'PUT' }
+            })
+                .done(function (data) {
+                    getAll();
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#taskUpdated').text('Error: ' + err);
+                });
+        }
+
+        function del() {
+            var id = $('#delTaskId').val();
+
+            $.ajax({
+                url: uri + '/' + id,
+                type: 'DELETE',
+            })
+                .done(function (data) {
+                    getAll();
+                })
+                .fail(function (jqXHR, textStatus, err) {
+                    $('#taskDeleted').text('Error: ' + err);
+                });
+        }
+
+    </script>
+</body>
+</html>

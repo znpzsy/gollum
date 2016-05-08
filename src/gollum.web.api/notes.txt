@@ -1,0 +1,47 @@
+---------------------------------------------------
+GET
+http://znpzsy.kaleyazilim.internal/api/task/
+
+http://znpzsy.kaleyazilim.internal/api/task/c080ede0-23dd-4ab1-b688-f58c9469835a
+
+
+User-Agent: Fiddler
+Host: znpzsy.kaleyazilim.internal
+Content-Length: 0
+
+NO BODY
+
+
+---------------------------------------------------
+POST
+http://znpzsy.kaleyazilim.internal/api/task/
+
+User-Agent: Fiddler
+Host: znpzsy.kaleyazilim.internal
+Content-Type: application/json
+Content-Length: 101
+
+{"Name": "NewName","Description":"DESCRIPTION UPDATED", "Key":"59a4acc9-268b-43b1-9622-0aa5e83a0ba8"}
+---------------------------------------------------
+PUT
+http://znpzsy.kaleyazilim.internal/api/task/10afe13d-5a74-4bcd-af13-4b7536908b40
+
+User-Agent: Fiddler
+Host: znpzsy.kaleyazilim.internal
+Content-Length: 88
+Content-Type: application/json
+BODY
+{"Name":"updated", "Description":"up desc", "Id":'10afe13d-5a74-4bcd-af13-4b7536908b40'}
+
+
+http://znpzsy.kaleyazilim.internal/api/task/59a4acc9-268b-43b1-9622-0aa5e83a0ba8
+User-Agent: Fiddler
+Host: znpzsy.kaleyazilim.internal
+Content-Length: 100
+Content-Type: application/json
+{"Name": "NewName","Description":"DESCRIPTION UPDATED", "Id":"59a4acc9-268b-43b1-9622-0aa5e83a0ba8"}
+---------------------------------------------------
+DELETE
+
+no body
+http://znpzsy.kaleyazilim.internal/api/task/59a4acc9-268b-43b1-9622-0aa5e83a0ba8

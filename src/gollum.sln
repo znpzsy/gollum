@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gollum.web", "gollum.web\gollum.web.csproj", "{062454E7-72DB-45ED-B0F8-7554541DF72D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gollum.web.api", "gollum.web.api\gollum.web.api.csproj", "{38B4B86B-DF12-419A-82B0-089315635C23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gollum.web.common", "gollum.web.common\gollum.web.common.csproj", "{34EA77BE-5BE9-4241-83E4-AC2A667A8601}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0E5E4B80-B4B5-4E34-AA6B-A02CD089D1E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gollum.web.api.tests", "gollum.web.api.tests\gollum.web.api.tests.csproj", "{0CA4F501-6226-46ED-8097-9DD207185613}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{062454E7-72DB-45ED-B0F8-7554541DF72D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{062454E7-72DB-45ED-B0F8-7554541DF72D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{062454E7-72DB-45ED-B0F8-7554541DF72D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{062454E7-72DB-45ED-B0F8-7554541DF72D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38B4B86B-DF12-419A-82B0-089315635C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38B4B86B-DF12-419A-82B0-089315635C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38B4B86B-DF12-419A-82B0-089315635C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38B4B86B-DF12-419A-82B0-089315635C23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34EA77BE-5BE9-4241-83E4-AC2A667A8601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34EA77BE-5BE9-4241-83E4-AC2A667A8601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34EA77BE-5BE9-4241-83E4-AC2A667A8601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34EA77BE-5BE9-4241-83E4-AC2A667A8601}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CA4F501-6226-46ED-8097-9DD207185613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CA4F501-6226-46ED-8097-9DD207185613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CA4F501-6226-46ED-8097-9DD207185613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CA4F501-6226-46ED-8097-9DD207185613}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0CA4F501-6226-46ED-8097-9DD207185613} = {0E5E4B80-B4B5-4E34-AA6B-A02CD089D1E4}
+	EndGlobalSection
+EndGlobal
