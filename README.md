@@ -5,7 +5,7 @@ Sample project with Web API 2
 
 Dependency Injection | Unit Testing | Security | User Interface | Logging 
 ------------ | ------------- | -------------  | ------------- | -------------
-Used [Ninject]() | Used [Moq](https://github.com/Moq/moq4/wiki/Quickstart) | :hourglass_flowing_sand: | :hourglass: | :negative_squared_cross_mark:
+Used [Ninject]() | Used [Moq](https://github.com/Moq/moq4/wiki/Quickstart) & [xUnit](https://xunit.github.io/) | :hourglass_flowing_sand: | :hourglass: | :negative_squared_cross_mark:
 
 
 
