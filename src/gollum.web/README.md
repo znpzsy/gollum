@@ -11,4 +11,8 @@
  * :pill: &nbsp;&nbsp; [systemjs.config.js](https://github.com/systemjs/systemjs/blob/master/docs/config-api.md), would be the the [SystemJS](https://github.com/systemjs/systemjs) configuration file, which is not yet added.
  
  
+**See more here:**
+[Creating an Angular 2 Build](http://blog.scottlogic.com/2015/12/24/creating-an-angular-2-build.html)
+ 
+ 
  
