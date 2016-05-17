@@ -1,8 +1,8 @@
 ﻿using Xunit;
 using Moq;
-using gollum.web.api.Repositories;
 using gollum.web.api.Controllers;
-using gollum.web.common.Models.Task;
+using gollum.web.api.Repositories.Task;
+using System;
 
 namespace gollum.web.api.tests.Controllers.Task
 {
@@ -19,12 +19,13 @@ namespace gollum.web.api.tests.Controllers.Task
         [Fact]
         public void ShouldReturnListOfTasksWhenGETForAll()
         {
+            Guid aId = Guid.NewGuid();
             // Arrange
             var expectedResult = MockDataProvider.MockTaskList(15);
-            mockedRepo.Setup(t => t.GetAll()).Returns(expectedResult);
+            mockedRepo.Setup(t => t.GetAll(aId)).Returns(expectedResult);
             
             // Act
-            var actualResponse = controller.GetAll();
+            var actualResponse = controller.GetAll(aId);
 
             // Assert
             Assert.Equal(expectedResult, actualResponse);

@@ -33,6 +33,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\gollum.web.api.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -62,6 +63,10 @@
     </Reference>
     <Reference Include="Ninject.Web.Common, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.Web.Common.3.2.0.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.3.2\lib\net40\Swashbuckle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http" />
@@ -100,20 +105,46 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\NinjectConfig.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\FieldController.cs" />
+    <Compile Include="Controllers\OperationController.cs" />
+    <Compile Include="Controllers\OrganizationController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\TaskController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Account\AccountRepository.cs" />
+    <Compile Include="Repositories\Account\IAccountRepository.cs" />
+    <Compile Include="Repositories\Application\ApplicationRepository.cs" />
+    <Compile Include="Repositories\Application\IApplicationRepository.cs" />
+    <Compile Include="Repositories\Field\FieldRepository.cs" />
+    <Compile Include="Repositories\Field\IFieldRepository.cs" />
+    <Compile Include="Repositories\IBaseApplicationRepository.cs" />
+    <Compile Include="Repositories\IBaseGlobalRepository.cs" />
     <Compile Include="Repositories\IBaseRepository.cs" />
-    <Compile Include="Repositories\ITaskRepository.cs" />
-    <Compile Include="Repositories\TaskRepository.cs" />
+    <Compile Include="Repositories\Operation\IOperationRepository.cs" />
+    <Compile Include="Repositories\Operation\OperationRepository.cs" />
+    <Compile Include="Repositories\Organization\IOrganizationRepository.cs" />
+    <Compile Include="Repositories\Organization\OrganizationRepository.cs" />
+    <Compile Include="Repositories\Role\IRoleRepository.cs" />
+    <Compile Include="Repositories\Role\RoleRepository.cs" />
+    <Compile Include="Repositories\Task\ITaskRepository.cs" />
+    <Compile Include="Repositories\Task\TaskRepository.cs" />
+    <Compile Include="Repositories\User\IUserRepository.cs" />
+    <Compile Include="Repositories\User\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -148,7 +179,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50265</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://znpzsy.kaleyazilim.internal</IISUrl>
+          <IISUrl>http://localhost/gollum.web.api</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

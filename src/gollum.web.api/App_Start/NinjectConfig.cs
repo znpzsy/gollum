@@ -1,7 +1,14 @@
 ﻿
 using Ninject;
-using Ninject.Activation;
-using gollum.web.api.Repositories;
+//using Ninject.Activation;
+using gollum.web.api.Repositories.Task;
+using gollum.web.api.Repositories.Application;
+using gollum.web.api.Repositories.User;
+using gollum.web.api.Repositories.Field;
+using gollum.web.api.Repositories.Operation;
+using gollum.web.api.Repositories.Role;
+using gollum.web.api.Repositories.Organization;
+using gollum.web.api.Repositories.Account;
 
 namespace gollum.web.api.App_Start
 {
@@ -13,6 +20,10 @@ namespace gollum.web.api.App_Start
     /// </summary>
     public class NinjectConfig
     {
+        /// <summary>
+        /// Relates the interfaces to their concrete implementations by adding bindings.
+        /// </summary>
+        /// <param name="container"></param>
         public void Configure(IKernel container)
         {
             AddBindings(container);
@@ -27,8 +38,16 @@ namespace gollum.web.api.App_Start
         /// <param name="container"></param>
         private void AddBindings(IKernel container)
         {
+            container.Bind<IApplicationRepository>().To<ApplicationRepository>().InSingletonScope();
+            container.Bind<IOrganizationRepository>().To<OrganizationRepository>().InSingletonScope();
+            container.Bind<IUserRepository>().To<UserRepository>().InSingletonScope();
+            container.Bind<IAccountRepository>().To<AccountRepository>().InSingletonScope();
+
+            container.Bind<IFieldRepository>().To<FieldRepository>().InSingletonScope();
+            container.Bind<IOperationRepository>().To<OperationRepository>().InSingletonScope();
             container.Bind<ITaskRepository>().To<TaskRepository>().InSingletonScope();
             //container.Bind<ITaskRepository>().To<TaskRepository>().InRequestScope();
+            container.Bind<IRoleRepository>().To<RoleRepository>().InSingletonScope();
         }
     }
 }

@@ -40,8 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Account\AccountModel.cs" />
+    <Compile Include="Models\Application\ApplicationModel.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Field\FieldModel.cs" />
+    <Compile Include="Models\Operation\OperationModel.cs" />
+    <Compile Include="Models\Organization\OrganizationModel.cs" />
+    <Compile Include="Models\Role\RoleModel.cs" />
     <Compile Include="Models\Task\TaskModel.cs" />
+    <Compile Include="Models\User\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

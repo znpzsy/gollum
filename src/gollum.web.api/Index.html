@@ -2,58 +2,126 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Task App</title>
+    <style>
+        html {
+            font-family: sans-serif;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #333;
+            background-color: #fff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .h5,
+        .h6 {
+            font-family: inherit;
+            font-weight: 500;
+            line-height: 1.1;
+            color: inherit;
+        }
+
+        a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+
+            a:hover,
+            a:focus {
+                color: #23527c;
+                text-decoration: underline;
+            }
+
+            a:focus {
+                outline: thin dotted;
+                outline: 5px auto -webkit-focus-ring-color;
+                outline-offset: -2px;
+            }
+
+        .container {
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
 </head>
 <body>
-    <hr />
-    <div>
-        <h1>[GET] - Get All</h1>
-        <h2>All Tasks</h2>
-        <ul id="tasks" />
-    </div>
-    <hr />
+    <div class="container">
+        <hr />
+        <h1>API Documents</h1>
+        <h3>See the API Documentation <a href="help/index">[HERE]</a></h3>
+        <hr />
+        <hr />
+        <div>
+            <h1>Test the Task Service:</h1>
+        </div>
+        <div>
+            <h3>[GET] - Get All</h3>
+            <h4>All Tasks</h4>
+            <ul id="tasks" />
+        </div>
+        <hr />
 
-    <div>
-        <h1>[GET] - Get By Id</h1>
-        <h2>Task by ID</h2>
-        <input type="text" id="taskId" />
-        <input type="button" value="Search" onclick="find();" />
-        <p id="taskSearch" />
-    </div>
-    <hr />
+        <div>
+            <h3>[GET] - Get By Id</h3>
+            <h4>Task by ID</h4>
+            <input type="text" id="taskId" />
+            <input type="button" value="Search" onclick="find();" />
+            <p id="taskSearch" />
+        </div>
+        <hr />
 
-    <div>
-        <h1>[POST] - Create</h1>
-        <h2>Add with name</h2>
-        <input type="text" id="taskName" placeholder="Name" />
-        <input type="text" id="taskDescription" placeholder="Description" />
-        <input type="button" value="Submit" onclick="submit();" />
-        <p id="taskAdded" />
-    </div>
-    <hr />
+        <div>
+            <h3>[POST] - Create</h3>
+            <h4>Add with name</h4>
+            <input type="text" id="taskName" placeholder="Name" />
+            <input type="text" id="taskDescription" placeholder="Description" />
+            <input type="button" value="Submit" onclick="submit();" />
+            <p id="taskAdded" />
+        </div>
+        <hr />
 
-    <div>
-        <h1>[PUT] - Update</h1>
-        <h2>Update by ID</h2>
-        <input type="text" id="upTaskId" placeholder="Id" />
-        <input type="text" id="upTaskKey" placeholder="Key" />
-        <input type="text" id="upTaskName" placeholder="Name" />
-        <input type="text" id="upTaskDescription" placeholder="Description" />
-        <input type="button" value="Update" onclick="update();" />
-        <p id="taskUpdated" />
-    </div>
-    <hr />
+        <div>
+            <h3>[PUT] - Update</h3>
+            <h4>Update by ID</h4>
+            <input type="text" id="upTaskId" placeholder="Id" />
+            <input type="text" id="upTaskKey" placeholder="Key" />
+            <input type="text" id="upTaskName" placeholder="Name" />
+            <input type="text" id="upTaskDescription" placeholder="Description" />
+            <input type="button" value="Update" onclick="update();" />
+            <p id="taskUpdated" />
+        </div>
+        <hr />
 
-    <div>
-        <h1>[DELETE] - Delete</h1>
-        <h2>Delete by ID</h2>
-        <input type="text" id="delTaskId" placeholder="Id" />
-        <input type="button" value="Delete" onclick="del();" />
-        <p id="taskDeleted" />
+        <div>
+            <h3>[DELETE] - Delete</h3>
+            <h4>Delete by ID</h4>
+            <input type="text" id="delTaskId" placeholder="Id" />
+            <input type="button" value="Delete" onclick="del();" />
+            <p id="taskDeleted" />
+        </div>
+
     </div>
 
     <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.min.js"></script>
     <script>
-        var uri = 'api/task/';
+        var uri = 'api/v1/application/676fb4de-54a2-42ab-a9aa-e72318d2621b/task/';
 
         $(document).ready(function () {
             // Send an AJAX request
@@ -108,7 +176,7 @@
             var description = $('#upTaskDescription').val();
 
             $.ajax({
-                url: uri + '/' + id,
+                url: uri + id,
                 type: 'PUT',
                 data: { "Name": name, "Description": description, "Key": key, "Id": id, _method: 'PUT' }
             })
@@ -124,7 +192,7 @@
             var id = $('#delTaskId').val();
 
             $.ajax({
-                url: uri + '/' + id,
+                url: uri + id,
                 type: 'DELETE',
             })
                 .done(function (data) {

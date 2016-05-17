@@ -1,11 +1,11 @@
 {
     "compilerOptions": {
         "noImplicitAny": false,
-        "noEmitOnError": true,
+        "noEmitOnError": false,
         "removeComments": false,
         "sourceMap": true,
         "module": "commonjs",
-        "target": "es5"
+        "target": "ES5"
     },
     "exclude": [
         "node_modules",

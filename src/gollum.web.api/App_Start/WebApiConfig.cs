@@ -1,11 +1,17 @@
-﻿using System.Linq;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Web.Http;
 
 namespace gollum.web.api
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WebApiConfig
     {
+        /// <summary>
+        /// Web API Configuration with Attribute Routes
+        /// </summary>
+        /// <param name="config">HttpConfiguration</param>
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
@@ -16,8 +22,6 @@ namespace gollum.web.api
             /// makes sure you get json on most queries.
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
-            //config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
-
             //var appXmlType = config.Formatters.XmlFormatter.SupportedMediaTypes.FirstOrDefault(t => t.MediaType == "application/xml");
             //config.Formatters.XmlFormatter.SupportedMediaTypes.Remove(appXmlType);
 
@@ -26,12 +30,6 @@ namespace gollum.web.api
 
             // Web API routes
             config.MapHttpAttributeRoutes();
-
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
         }
     }
 }

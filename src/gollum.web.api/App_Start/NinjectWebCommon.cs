@@ -12,6 +12,7 @@ namespace gollum.web.api.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using System.Web.Http;
+
     /// <summary>
     /// A dependency injection container should be created during application startup
     /// and remain in memory until the app shutdown. 
@@ -97,31 +98,56 @@ namespace gollum.web.api.App_Start
     {
         private readonly IKernel _container;
 
+        /// <summary>
+        /// Initializes a new instance of the NinjectDependencyResolver class.
+        /// IKernel, a super-factory that can create objects of all kinds, will be our IoC container.
+        /// </summary>
+        /// <param name="container"></param>
         public NinjectDependencyResolver(IKernel container)
         {
             _container = container;
         }
 
+        /// <summary>
+        /// The IoC Container that holds the services.
+        /// </summary>
         public IKernel Container
         {
             get { return _container; }
         }
 
+        /// <summary>
+        /// Gets an instance of the specified service by using the first binding that matches the specified constraint.
+        /// </summary>
+        /// <param name="serviceType"></param>
+        /// <returns>An instance of the service</returns>
         public object GetService(Type serviceType)
         {
             return _container.TryGet(serviceType);
         }
 
+        /// <summary>
+        /// Gets all services registered with the container.
+        /// </summary>
+        /// <param name="serviceType"></param>
+        /// <returns>A series of instances of the service</returns>
         public IEnumerable<object> GetServices(Type serviceType)
         {
             return _container.GetAll(serviceType);
         }
 
+        /// <summary>
+        /// Represents the range of the dependencies.
+        /// </summary>
+        /// <returns></returns>
         public IDependencyScope BeginScope()
         {
             return this;
         }
 
+        /// <summary>
+        /// Disposes the NinjectDependencyResolver
+        /// </summary>
         public void Dispose()
         {
             GC.SuppressFinalize(this);
