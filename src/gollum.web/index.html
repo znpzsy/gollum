@@ -1,15 +1,30 @@
-﻿<!DOCTYPE html>
-
-<html lang="en">
+﻿<html>
 <head>
-    <meta charset="utf-8" />
-    <title>TypeScript HTML App</title>
-    <link rel="stylesheet" href="app.css" type="text/css" />
-    <script src="app.js"></script>
-</head>
-<body>
-    <h1>TypeScript HTML App</h1>
+    <title>Gollum</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--Bootstrap for now-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Auth0 Lock script -->
+    <script src="//cdn.auth0.com/js/lock-9.0.min.js"></script>
 
-    <div id="content"></div>
+    <!-- 1. Load libraries -->
+    <!-- Polyfill(s) for older browsers -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+
+    <!-- 2. Configure SystemJS -->
+    <script src="systemjs.config.js"></script>
+    <script>
+        System.import('app').catch(function (err) { console.error(err); });
+    </script>
+</head>
+
+<!-- 3. Display the application -->
+<body>
+    <app>Loading...</app>
 </body>
 </html>

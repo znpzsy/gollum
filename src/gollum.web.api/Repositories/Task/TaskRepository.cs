@@ -32,9 +32,16 @@ namespace gollum.web.api.Repositories.Task
             });
             Add(Guid.NewGuid(), new TaskModel
             {
-                Name = "TaskForPersonalUser",
+                Name = "TaskForPersonalAccount",
                 Key = Guid.NewGuid(),
                 Description = "Task Description B",
+                Tags = new string[] { "task tag 1", "task tag 2", "task tag 5", "task tag 6", "task tag 8" }
+            });
+            Add(Guid.NewGuid(), new TaskModel
+            {
+                Name = "TaskForServiceAccount",
+                Key = Guid.NewGuid(),
+                Description = "Task Description C",
                 Tags = new string[] { "task tag 1", "task tag 2", "task tag 5", "task tag 6", "task tag 8" }
             });
         }

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\MockDataHelper.cs" />
     <Compile Include="Models\Account\AccountModel.cs" />
     <Compile Include="Models\Application\ApplicationModel.cs" />
     <Compile Include="Models\BaseModel.cs" />

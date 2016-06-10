@@ -22,22 +22,36 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app.css" />
+    <Content Include="app\components\app.template.html" />
     <Content Include="index.html" />
+    <Content Include="systemjs.config.js" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="app.ts" />
+    <TypeScriptCompile Include="app\components\app.ts" />
+    <TypeScriptCompile Include="app\bootstrapper.ts" />
+    <TypeScriptCompile Include="app\services\auth.service.ts" />
+    <TypeScriptCompile Include="app\components\home.component.ts" />
+    <TypeScriptCompile Include="app\components\ping.component.ts" />
+    <TypeScriptCompile Include="app\components\profile.component.ts" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
+    <Content Include="typings.json" />
+    <Content Include="tslint.json" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
     <None Include="web.Release.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\directives\" />
+    <Folder Include="app\pipes\" />
+    <Folder Include="app\shared\" />
+    <Folder Include="assets\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">12.0</VisualStudioVersion>
@@ -55,7 +69,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51473</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/gollum.web/</IISUrl>
+          <IISUrl>http://localhost/gollum.web</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

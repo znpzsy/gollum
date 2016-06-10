@@ -1,5 +1,7 @@
 ﻿using System.Net.Http.Headers;
+using System.Web.Configuration;
 using System.Web.Http;
+using gollum.web.api.App_Start;
 
 namespace gollum.web.api
 {
@@ -15,6 +17,21 @@ namespace gollum.web.api
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+
+            #region CORS & Auth0
+
+            config.EnableCors();
+
+            var clientId = WebConfigurationManager.AppSettings["auth0:ClientId"];
+            var clientSecret = WebConfigurationManager.AppSettings["auth0:ClientSecret"];
+
+
+            config.MessageHandlers.Add(new JsonWebTokenValidationHandler()
+            {
+                Audience = clientId,  // client id
+                SymmetricKey = clientSecret   // client secret
+            });
+            #endregion
 
             #region JSON
 
